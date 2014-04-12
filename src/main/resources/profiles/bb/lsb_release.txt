@@ -1,0 +1,4 @@
+Distributor ID: Angstrom
+Description:    Angstrom GNU/Linux v2012.12 (Core edition)
+Release:        v2012.12
+Codename:       Core edition
