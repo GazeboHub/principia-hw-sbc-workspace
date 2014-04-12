@@ -1,21 +1,13 @@
-cat > /etc/udev/rules.d/73-beaglebone.rules <<EOF
-ACTION=="add", SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_interface", \
-        ATTRS{idVendor}=="0403", ATTRS{idProduct}=="a6d0", \
-        DRIVER=="", RUN+="/sbin/modprobe -b ftdi_sio"
+#!/bin/sh
 
-ACTION=="add", SUBSYSTEM=="drivers", \
-        ENV{DEVPATH}=="/bus/usb-serial/drivers/ftdi_sio", \
-        ATTR{new_id}="0403 a6d0"
+## original file:
+## http://beagleboard.org/static/Drivers/Linux/FTDI/mkudevrule.sh
+##
+## see also:
+## http://beagleboard.org/Getting+Started
 
-ACTION=="add", KERNEL=="ttyUSB*", \
-	ATTRS{interface}=="BeagleBone", \
-        ATTRS{bInterfaceNumber}=="00", \
-	SYMLINK+="beaglebone-jtag"
+UDEV_F=73-beaglebone.rules
+UDEV_D=/etc/udev/rules.d/
 
-ACTION=="add", KERNEL=="ttyUSB*", \
-	ATTRS{interface}=="BeagleBone", \
-        ATTRS{bInterfaceNumber}=="01", \
-	SYMLINK+="beaglebone-serial"
-EOF
-
+sudo install -C -b -g root -m "u=rw,g=r,o=r" "${UDEV_F}" "${UDEV_D}"
 sudo udevadm control --reload-rules
