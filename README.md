@@ -21,3 +21,4 @@ Supported Platforms (1.0)
 * _[Comparison of Single-Board Computers](http://en.wikipedia.org/wiki/Comparison_of_single-board_computers)_,
   Wikipedia
 * [Raspberry Pi](http://www.raspberrypi.org/)
+* [Gumstix, Inc.](https://www.gumstix.com/)
