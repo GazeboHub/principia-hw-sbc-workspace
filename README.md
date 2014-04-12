@@ -1,4 +1,7 @@
-principia-hw-sbc
-================
+Single Board Computers Work Area - Principia Project
+====================================================
 
-Principia Project - Single Board Computers Work Area
+Supported Platforms (1.0)
+
+* Arduino Uno
+* BeagleBone Black
