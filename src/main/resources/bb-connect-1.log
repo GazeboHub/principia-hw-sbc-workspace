@@ -1,0 +1,101 @@
+Apr 12 01:17:06 muletop kernel: [40395.364276] usb 2-1.4: new high-speed USB device number 8 using ehci-pci
+Apr 12 01:17:06 muletop kernel: [40395.450538] usb 2-1.4: New USB device found, idVendor=1d6b, idProduct=0104
+Apr 12 01:17:06 muletop kernel: [40395.450546] usb 2-1.4: New USB device strings: Mfr=2, Product=3, SerialNumber=4
+Apr 12 01:17:06 muletop kernel: [40395.450552] usb 2-1.4: Product: BeagleBoneBlack
+Apr 12 01:17:06 muletop kernel: [40395.450556] usb 2-1.4: Manufacturer: Circuitco
+Apr 12 01:17:06 muletop kernel: [40395.450560] usb 2-1.4: SerialNumber: A6-4913BBBK2407
+Apr 12 01:17:06 muletop kernel: [40395.452534] usb-storage 2-1.4:1.4: USB Mass Storage device detected
+Apr 12 01:17:06 muletop kernel: [40395.453067] scsi7 : usb-storage 2-1.4:1.4
+Apr 12 01:17:07 muletop kernel: [40396.456056] scsi 7:0:0:0: Direct-Access     Linux    File-CD Gadget   0308 PQ: 0 ANSI: 2
+Apr 12 01:17:07 muletop kernel: [40396.456558] sd 7:0:0:0: Attached scsi generic sg4 type 0
+Apr 12 01:17:07 muletop kernel: [40396.458130] sd 7:0:0:0: [sdc] 144522 512-byte logical blocks: (73.9 MB/70.5 MiB)
+Apr 12 01:17:07 muletop kernel: [40396.458849] sd 7:0:0:0: [sdc] Write Protect is off
+Apr 12 01:17:07 muletop kernel: [40396.458852] sd 7:0:0:0: [sdc] Mode Sense: 0f 00 00 00
+Apr 12 01:17:07 muletop kernel: [40396.459569] sd 7:0:0:0: [sdc] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
+Apr 12 01:17:07 muletop kernel: [40396.467624]  sdc:
+Apr 12 01:17:07 muletop kernel: [40396.470445] sd 7:0:0:0: [sdc] Attached SCSI removable disk
+Apr 12 01:17:07 muletop mtp-probe: checking bus 2, device 8: "/sys/devices/pci0000:00/0000:00:1d.0/usb2/2-1/2-1.4"
+Apr 12 01:17:07 muletop mtp-probe: bus: 2, device: 8 was not an MTP device
+Apr 12 01:17:08 muletop kernel: [40397.673229] cdc_acm 2-1.4:1.2: This device cannot do calls on its own. It is not a modem.
+Apr 12 01:17:08 muletop kernel: [40397.673301] cdc_acm 2-1.4:1.2: ttyACM0: USB ACM device
+Apr 12 01:17:08 muletop kernel: [40397.673961] usbcore: registered new interface driver cdc_acm
+Apr 12 01:17:08 muletop kernel: [40397.673964] cdc_acm: USB Abstract Control Model driver for USB modems and ISDN adapters
+Apr 12 01:17:08 muletop kernel: [40397.953961] usbcore: registered new interface driver cdc_ether
+Apr 12 01:17:08 muletop kernel: [40397.996229] rndis_host 2-1.4:1.0 eth1: register 'rndis_host' at usb-0000:00:1d.0-1.4, RNDIS device, 90:59:af:5a:fa:42
+Apr 12 01:17:08 muletop kernel: [40397.996261] usbcore: registered new interface driver rndis_host
+Apr 12 01:17:09 muletop kernel: [40398.425180] usbcore: registered new interface driver rndis_wlan
+Apr 12 01:17:10 muletop NetworkManager[3089]:    SCPlugin-Ifupdown: devices added (path: /sys/devices/pci0000:00/0000:00:1d.0/usb2/2-1/2-1.4/2-1.4:1.0/net/eth1, iface: eth1)
+Apr 12 01:17:10 muletop NetworkManager[3089]:    SCPlugin-Ifupdown: device added (path: /sys/devices/pci0000:00/0000:00:1d.0/usb2/2-1/2-1.4/2-1.4:1.0/net/eth1, iface: eth1): no ifupdown configuration found.
+Apr 12 01:17:10 muletop NetworkManager[3089]: <warn> failed to allocate link cache: (-10) Operation not supported
+Apr 12 01:17:10 muletop NetworkManager[3089]: <info> (eth1): carrier is OFF
+Apr 12 01:17:11 muletop NetworkManager[3089]: <info> (eth1): new Ethernet device (driver: 'rndis_host' ifindex: 5)
+Apr 12 01:17:11 muletop NetworkManager[3089]: <info> (eth1): exported as /org/freedesktop/NetworkManager/Devices/2
+Apr 12 01:17:11 muletop NetworkManager[3089]: <info> (eth1): device state change: unmanaged -> unavailable (reason 'managed') [10 20 2]
+Apr 12 01:17:11 muletop NetworkManager[3089]: <info> (eth1): bringing up device.
+Apr 12 01:17:11 muletop NetworkManager[3089]: <info> (eth1): carrier now ON (device state 20)
+Apr 12 01:17:11 muletop NetworkManager[3089]: <info> (eth1): preparing device.
+Apr 12 01:17:11 muletop NetworkManager[3089]: <info> (eth1): deactivating device (reason 'managed') [2]
+Apr 12 01:17:11 muletop NetworkManager[3089]: <info> Added default wired connection 'Wired connection 1' for /sys/devices/pci0000:00/0000:00:1d.0/usb2/2-1/2-1.4/2-1.4:1.0/net/eth1
+Apr 12 01:17:11 muletop NetworkManager[3089]: <info> (eth1): device state change: unavailable -> disconnected (reason 'none') [20 30 0]
+Apr 12 01:17:11 muletop NetworkManager[3089]: <info> Auto-activating connection 'Wired connection 1'.
+Apr 12 01:17:11 muletop NetworkManager[3089]: <info> Activation (eth1) starting connection 'Wired connection 1'
+Apr 12 01:17:11 muletop NetworkManager[3089]: <info> (eth1): device state change: disconnected -> prepare (reason 'none') [30 40 0]
+Apr 12 01:17:11 muletop NetworkManager[3089]: <info> NetworkManager state is now CONNECTING
+Apr 12 01:17:11 muletop NetworkManager[3089]: <info> Activation (eth1) Stage 1 of 5 (Device Prepare) scheduled...
+Apr 12 01:17:11 muletop NetworkManager[3089]: <info> Activation (eth1) Stage 1 of 5 (Device Prepare) started...
+Apr 12 01:17:11 muletop NetworkManager[3089]: <info> Activation (eth1) Stage 2 of 5 (Device Configure) scheduled...
+Apr 12 01:17:11 muletop NetworkManager[3089]: <info> Activation (eth1) Stage 1 of 5 (Device Prepare) complete.
+Apr 12 01:17:11 muletop NetworkManager[3089]: <info> Activation (eth1) Stage 2 of 5 (Device Configure) starting...
+Apr 12 01:17:11 muletop NetworkManager[3089]: <info> (eth1): device state change: prepare -> config (reason 'none') [40 50 0]
+Apr 12 01:17:11 muletop NetworkManager[3089]: <info> Activation (eth1) Stage 2 of 5 (Device Configure) successful.
+Apr 12 01:17:11 muletop NetworkManager[3089]: <info> Activation (eth1) Stage 3 of 5 (IP Configure Start) scheduled.
+Apr 12 01:17:11 muletop NetworkManager[3089]: <info> Activation (eth1) Stage 2 of 5 (Device Configure) complete.
+Apr 12 01:17:11 muletop NetworkManager[3089]: <info> Activation (eth1) Stage 3 of 5 (IP Configure Start) started...
+Apr 12 01:17:11 muletop NetworkManager[3089]: <info> (eth1): device state change: config -> ip-config (reason 'none') [50 70 0]
+Apr 12 01:17:11 muletop NetworkManager[3089]: <info> Activation (eth1) Beginning DHCPv4 transaction (timeout in 45 seconds)
+Apr 12 01:17:12 muletop NetworkManager[3089]: <info> dhclient started with pid 21454
+Apr 12 01:17:12 muletop NetworkManager[3089]: <info> Activation (eth1) Beginning IP6 addrconf.
+Apr 12 01:17:12 muletop NetworkManager[3089]: <info> Activation (eth1) Stage 3 of 5 (IP Configure Start) complete.
+Apr 12 01:17:12 muletop dhclient: Internet Systems Consortium DHCP Client 4.2.4
+Apr 12 01:17:12 muletop dhclient: Copyright 2004-2012 Internet Systems Consortium.
+Apr 12 01:17:12 muletop dhclient: All rights reserved.
+Apr 12 01:17:12 muletop dhclient: For info, please visit https://www.isc.org/software/dhcp/
+Apr 12 01:17:12 muletop dhclient:
+Apr 12 01:17:12 muletop dhclient: Listening on LPF/eth1/90:59:af:5a:fa:42
+Apr 12 01:17:12 muletop dhclient: Sending on   LPF/eth1/90:59:af:5a:fa:42
+Apr 12 01:17:12 muletop dhclient: Sending on   Socket/fallback
+Apr 12 01:17:12 muletop dhclient: DHCPDISCOVER on eth1 to 255.255.255.255 port 67 interval 3
+Apr 12 01:17:12 muletop NetworkManager[3089]: <info> (eth1): DHCPv4 state changed nbi -> preinit
+Apr 12 01:17:13 muletop avahi-daemon[2851]: Joining mDNS multicast group on interface eth1.IPv6 with address fe80::9259:afff:fe5a:fa42.
+Apr 12 01:17:13 muletop avahi-daemon[2851]: New relevant interface eth1.IPv6 for mDNS.
+Apr 12 01:17:13 muletop avahi-daemon[2851]: Registering new address record for fe80::9259:afff:fe5a:fa42 on eth1.*.
+Apr 12 01:17:14 muletop ntpd[3016]: Listen normally on 6 eth1 fe80::9259:afff:fe5a:fa42 UDP 123
+Apr 12 01:17:14 muletop ntpd[3016]: peers refreshed
+Apr 12 01:17:14 muletop dhclient: DHCPREQUEST on eth1 to 255.255.255.255 port 67
+Apr 12 01:17:14 muletop dhclient: DHCPOFFER from 192.168.7.2
+Apr 12 01:17:14 muletop dhclient: DHCPACK from 192.168.7.2
+Apr 12 01:17:14 muletop NetworkManager[3089]: <info> (eth1): DHCPv4 state changed preinit -> bound
+Apr 12 01:17:14 muletop dhclient: bound to 192.168.7.1 -- renewal in 420507 seconds.
+Apr 12 01:17:14 muletop NetworkManager[3089]: <info>   address 192.168.7.1
+Apr 12 01:17:14 muletop NetworkManager[3089]: <info>   prefix 30 (255.255.255.252)
+Apr 12 01:17:14 muletop NetworkManager[3089]: <info> Activation (eth1) Stage 5 of 5 (IPv4 Configure Commit) scheduled...
+Apr 12 01:17:14 muletop NetworkManager[3089]: <info> Activation (eth1) Stage 5 of 5 (IPv4 Commit) started...
+Apr 12 01:17:14 muletop avahi-daemon[2851]: Joining mDNS multicast group on interface eth1.IPv4 with address 192.168.7.1.
+Apr 12 01:17:14 muletop avahi-daemon[2851]: New relevant interface eth1.IPv4 for mDNS.
+Apr 12 01:17:14 muletop avahi-daemon[2851]: Registering new address record for 192.168.7.1 on eth1.IPv4.
+Apr 12 01:17:15 muletop NetworkManager[3089]: <info> (eth1): device state change: ip-config -> secondaries (reason 'none') [70 90 0]
+Apr 12 01:17:15 muletop NetworkManager[3089]: <info> Activation (eth1) Stage 5 of 5 (IPv4 Commit) complete.
+Apr 12 01:17:15 muletop NetworkManager[3089]: <info> (eth1): device state change: secondaries -> activated (reason 'none') [90 100 0]
+Apr 12 01:17:15 muletop NetworkManager[3089]: <info> NetworkManager state is now CONNECTED_GLOBAL
+Apr 12 01:17:15 muletop NetworkManager[3089]: <info> Activation (eth1) successful, device activated.
+Apr 12 01:17:15 muletop dbus[2520]: [system] Activating service name='org.freedesktop.nm_dispatcher' (using servicehelper)
+Apr 12 01:17:15 muletop dbus[2520]: [system] Successfully activated service 'org.freedesktop.nm_dispatcher'
+Apr 12 01:17:17 muletop ntpd[3016]: Listen normally on 7 eth1 192.168.7.1 UDP 123
+Apr 12 01:17:17 muletop ntpd[3016]: peers refreshed
+Apr 12 01:17:19 muletop ModemManager[3331]: <info>  Creating modem with plugin 'Generic' and '2' ports
+Apr 12 01:17:19 muletop ModemManager[3331]: <warn>  Could not grab port (tty/ttyACM0): 'Cannot add port 'tty/ttyACM0', unhandled serial type'
+Apr 12 01:17:19 muletop ModemManager[3331]: <warn>  Couldn't create modem for device at '/sys/devices/pci0000:00/0000:00:1d.0/usb2/2-1/2-1.4': Failed to find primary AT port
+Apr 12 01:17:32 muletop NetworkManager[3089]: <info> (eth1): IP6 addrconf timed out or failed.
+Apr 12 01:17:32 muletop NetworkManager[3089]: <info> Activation (eth1) Stage 4 of 5 (IPv6 Configure Timeout) scheduled...
+Apr 12 01:17:32 muletop NetworkManager[3089]: <info> Activation (eth1) Stage 4 of 5 (IPv6 Configure Timeout) started...
+Apr 12 01:17:32 muletop NetworkManager[3089]: <info> Activation (eth1) Stage 4 of 5 (IPv6 Configure Timeout) complete.
