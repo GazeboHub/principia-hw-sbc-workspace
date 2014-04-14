@@ -32,4 +32,8 @@ else
                 grep '^Value:' | awk '{print $2}')
     PKG_ACTUAL=$(do_query $P_ACTUAL)
     print_pkg "${PKG_ACTUAL}"
+
+    P_VIRTUAL=$(update-alternatives --query "$1" |
+                head -n1 | awk '{print $2}')
+    echo $P_VIRTUAL
 fi
