@@ -35,6 +35,9 @@ err_fatal() {
     exit $ECODE
 }
 
+checkmount() {
+    mount | grep "^/dev/${1}" > /dev/null
+}
 
 DEV_MMC_SD=$(sh ./mmcdevtype.sh | grep 'SD$' | awk '{print $1}')
 
@@ -46,14 +49,14 @@ fi
 
 
 for MMC in ${DEV_MMC_MMC}; do
-        if mount | grep "^/dev/${MMC}"; then
+        if checkmount $MMC; then
             msg "unmounting MMC medium ${MMC}"
             sudo umount "/dev/${MMC}"
         fi
 done
 
 for SD in ${DEV_MMC_SD}; do
-        if mount | grep "^/dev/${SD}"; then
+        if checkmount $SD; then
             msg "remounting SD medium ${SD} as read-only"
             sudo mount -o remount,ro "/dev/${SD}"
         fi
@@ -93,10 +96,10 @@ for DEVPATH in /sys/bus/mmc/devices/* ; do
         fi
 done
 
-exit 1
 
 msg beginning DD operation
-dd if=${SDDEV} of=${MMCDEV} bs=${BLKSZ}
+msg using: if=/dev/${SDDEV} of=/dev/${MMCDEV} bs=${BLKSZ}
+dd if=/dev/${SDDEV} of=/dev/${MMCDEV} bs=${BLKSZ}
 
 msg DD operation complete
 msg Next procedures:
