@@ -10,6 +10,11 @@
 #  deb:grep
 #  deb:awk
 #  deb:sudo
+#
+# procedure:
+#  1. scp *.sh debian@${B3_IP}
+#  2. ssh debian@${B3_IP} "sh imgflash_dd.sh"
+#  3. refer to "Next proceures," at end of script
 
 BLKSZ=${1:-512}
 
@@ -31,10 +36,10 @@ err_fatal() {
 }
 
 
-MOUNTED_MMC_SD=$(sh ./mmcblkdevtype.sh |
+MOUNTED_MMC_SD=$(sh ./mmcdevtype.sh |
                         grep 'SD$' | awk '{print $1}')
 
-MOUNTED_MMC_MMC=$(sh ./mmcblkdevtype.sh |
+MOUNTED_MMC_MMC=$(sh ./mmcdevtype.sh |
                         grep 'MMC$' | awk '{print $1}')
 
 if [ -z "${MOUNTED_MMC_SD}" ]; then
@@ -59,7 +64,7 @@ for DEVPATH in /sys/bus/mmc/devices/* ; do
         DEV=$(echo $DEVPATH | cut -d/ -f6)
         DEVTYPE=$(cat $DEVPATH/type)
 
-        if [ "$DEVTYPE" -eq "SD" ]; then
+        if [ "$DEVTYPE" = "SD" ]; then
                 if [ -n "${SDDEV}" ]; then
                     ## "Unsupported hardware"
                     ## FIXME: Permit a command line arg to specify the SD device
@@ -68,7 +73,7 @@ for DEVPATH in /sys/bus/mmc/devices/* ; do
                     msg "Using SD device ${DEV}"
                     SDDEV=${DEV}
                 fi
-        elif [ "$DEVTYPE" -eq "MMC" ]; then
+        elif [ "$DEVTYPE" = "MMC" ]; then
                 if [ -n "${MMCDEV}" ]; then
                     ## "Unsupported hardware"
                     ## FIXME: Permit a command line arg to specify the MMC device
@@ -86,7 +91,7 @@ msg beginning DD operation
 dd if=${SDDEV} of=${MMCDEV} BS=${BLKSZ}
 
 msg DD operation complete
-msg To do
+msg Next procedures:
 msg 1. Shutdown device main board
 msg 2. Remove microSD
 msg 3. Power up device main board
