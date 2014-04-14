@@ -36,24 +36,27 @@ err_fatal() {
 }
 
 
-MOUNTED_MMC_SD=$(sh ./mmcdevtype.sh |
-                        grep 'SD$' | awk '{print $1}')
+DEV_MMC_SD=$(sh ./mmcdevtype.sh | grep 'SD$' | awk '{print $1}')
 
-MOUNTED_MMC_MMC=$(sh ./mmcdevtype.sh |
-                        grep 'MMC$' | awk '{print $1}')
+DEV_MMC_MMC=$(sh ./mmcdevtype.sh | grep 'MMC$' | awk '{print $1}')
 
-if [ -z "${MOUNTED_MMC_SD}" ]; then
+if [ -z "${DEV_MMC_SD}" ]; then
         err_fatal 1 "no SD media mounted"
 fi
 
-for MMC in ${MOUNTED_MMC_MMC}; do
-        msg "unmounting MMC medium ${MMC}"
-        sudo umount "${MMC}"
+
+for MMC in ${DEV_MMC_MMC}; do
+        if mount | grep "^/dev/${MMC}"; then
+            msg "unmounting MMC medium ${MMC}"
+            sudo umount "/dev/${MMC}"
+        fi
 done
 
-for SD in ${MOUNTED_MMC_SD}; do
-        msg "remounting SD medium ${SD} as read-only"
-        sudo mount -o remount,ro "${SD}"
+for SD in ${DEV_MMC_SD}; do
+        if mount | grep "^/dev/${SD}"; then
+            msg "remounting SD medium ${SD} as read-only"
+            sudo mount -o remount,ro "/dev/${SD}"
+        fi
 done
 
 
@@ -68,7 +71,7 @@ for DEVPATH in /sys/bus/mmc/devices/* ; do
                 if [ -n "${SDDEV}" ]; then
                     ## "Unsupported hardware"
                     ## FIXME: Permit a command line arg to specify the SD device
-                    err_fatal "Found more than one SD device ${DEV} ${SDDEV}"
+                    err_fatal 1 "Found more than one SD device ${DEV} ${SDDEV}"
                 else
                     ## fixme: assuming only one block device per DEV
                     SDDEV=$(ls -d /sys/bus/mmc/devices/${DEV}/block/* |
@@ -79,7 +82,7 @@ for DEVPATH in /sys/bus/mmc/devices/* ; do
                 if [ -n "${MMCDEV}" ]; then
                     ## "Unsupported hardware"
                     ## FIXME: Permit a command line arg to specify the MMC device
-                    err_fatal "Found more than one MMC device ${DEV} ${MMCDEV}"
+                    err_fatal 1 "Found more than one MMC device ${DEV} ${MMCDEV}"
                 else
                     MMCDEV=$(ls -d /sys/bus/mmc/devices/${DEV}/block/* |
                                 cut -d/ -f8)
