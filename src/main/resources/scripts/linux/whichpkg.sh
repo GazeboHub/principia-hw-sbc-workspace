@@ -7,7 +7,7 @@
 # dependencies:
 #  deb:coreutils
 #  deb:dpkg
-#  deb:gawk
+#  deb:awk
 #  deb:grep
 
 
