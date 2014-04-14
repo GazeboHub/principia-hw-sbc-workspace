@@ -51,7 +51,7 @@ for MMC in ${MOUNTED_MMC_MMC}; do
         sudo umount "${MMC}"
 done
 
-for SD in ${MOUNTED_MMC_MMC}; do
+for SD in ${MOUNTED_MMC_SD}; do
         msg "remounting SD medium ${SD} as read-only"
         sudo mount -o remount,ro "${SD}"
 done
@@ -70,8 +70,10 @@ for DEVPATH in /sys/bus/mmc/devices/* ; do
                     ## FIXME: Permit a command line arg to specify the SD device
                     err_fatal "Found more than one SD device ${DEV} ${SDDEV}"
                 else
-                    msg "Using SD device ${DEV}"
-                    SDDEV=${DEV}
+                    ## fixme: assuming only one block device per DEV
+                    SDDEV=$(ls -d /sys/bus/mmc/devices/${DEV}/block/* |
+                                cut -d/ -f8)
+                    msg "Using SD device ${SDDEV}"
                 fi
         elif [ "$DEVTYPE" = "MMC" ]; then
                 if [ -n "${MMCDEV}" ]; then
@@ -79,16 +81,19 @@ for DEVPATH in /sys/bus/mmc/devices/* ; do
                     ## FIXME: Permit a command line arg to specify the MMC device
                     err_fatal "Found more than one MMC device ${DEV} ${MMCDEV}"
                 else
-                    msg "Using MMC device ${DEV}"
-                    MMCDEV=${DEV}
+                    MMCDEV=$(ls -d /sys/bus/mmc/devices/${DEV}/block/* |
+                                cut -d/ -f8)
+                    msg "Using MMC device ${MMCDEV}"
                 fi
         else
                 msg_err "unknown device type ${DEVTYPE}"
         fi
 done
 
+exit 1
+
 msg beginning DD operation
-dd if=${SDDEV} of=${MMCDEV} BS=${BLKSZ}
+dd if=${SDDEV} of=${MMCDEV} bs=${BLKSZ}
 
 msg DD operation complete
 msg Next procedures:
