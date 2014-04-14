@@ -33,7 +33,7 @@ else
     PKG_ACTUAL=$(do_query $P_ACTUAL)
     print_pkg "${PKG_ACTUAL}"
 
-    P_VIRTUAL=$(update-alternatives --query "$1" |
+    PKG_VIRTUAL=$(update-alternatives --query "$1" |
                 head -n1 | awk '{print $2}')
-    echo $P_VIRTUAL
+    echo $PKG_VIRTUAL
 fi
