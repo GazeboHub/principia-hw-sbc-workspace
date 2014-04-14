@@ -4,6 +4,10 @@
 #
 # version 1.0
 #
+# dependencies:
+#  deb:mount
+#  deb:awk
+#  deb:coreutils
 
 for MMCBLKDEV in $(mount  | grep '^/dev/mmcblk' |
     awk '{print $1}' | cut -d/ -f3 ); do
