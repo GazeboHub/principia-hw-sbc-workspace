@@ -2,3 +2,7 @@
 	path = modules/third-party/bb-image-builder
 	url = git://github.com/beagleboard/image-builder.git
 	branch = master
+[submodule "modules/third-party/u-boot"]
+	path = modules/third-party/u-boot
+	url = git://git.denx.de/u-boot.git
+	branch = master
