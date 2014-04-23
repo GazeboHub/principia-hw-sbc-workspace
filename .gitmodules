@@ -1,0 +1,4 @@
+[submodule "modules/third-party/bb-image-builder"]
+	path = modules/third-party/bb-image-builder
+	url = git://github.com/beagleboard/image-builder.git
+	branch = master
