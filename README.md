@@ -12,8 +12,8 @@ Availability: <https://github.com/GazeboHub/principia-hw-sbc-workspace>
 
 Supported Platforms (1.0)
 
-* Arduino Uno
-* BeagleBone Black
+* [Arduino Uno](http://arduino.cc/en/Main/arduinoBoardUno)
+* [BeagleBone Black](http://beagleboard.org/Products/BeagleBone+Black)
 
 
 ## Related Resources
