@@ -6,3 +6,7 @@
 	path = modules/third-party/u-boot
 	url = git://git.denx.de/u-boot.git
 	branch = master
+[submodule "modules/third-party/libsoc"]
+	path = modules/third-party/libsoc
+	url = git@github.com:jackmitch/libsoc.git
+	branch = master
