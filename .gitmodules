@@ -6,3 +6,7 @@
 	path = modules/third-party/libsoc
 	url = git@github.com:jackmitch/libsoc.git
 	branch = master
+[submodule "modules/third-party/u-boot-bb"]
+	path = modules/third-party/u-boot-bb
+	url = https://github.com/beagleboard/u-boot
+	branch = master
